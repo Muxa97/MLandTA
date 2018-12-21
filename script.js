@@ -23,13 +23,18 @@ function GetResult() {
     index = 0;
 }
 
-function CheckInput() {
-    let input = document.getElementById('source');
-    input.classList.remove('valid', 'invalid');
-    let str = input.value;
+function CheckInput(event) {
+    if (event.key === 'Enter') {
+        GetResult();
+    }
+    else {
+        let input = document.getElementById('source');
+        input.classList.remove('valid', 'invalid');
+        let str = input.value;
 
-    document.getElementById('source').classList.add( Parse(str) ? 'valid' : 'invalid');
-    index = 0;
+        document.getElementById('source').classList.add(Parse(str) ? 'valid' : 'invalid');
+        index = 0;
+    }
 }
 
 function Parse(str) {

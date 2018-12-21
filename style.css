@@ -33,6 +33,51 @@ h1 {
     color: #ff4444;
 }
 
+.task-formalization-table {
+    margin: 5pt 5pt 10pt 5pt;
+    padding: 10pt;
+    border: 2px solid black;
+    border-radius: 5px;
+    box-shadow: 0 2px 3px 2px black;
+}
+
+pre {
+    max-width: border-box;
+    font-size: 12pt;
+}
+
+table {
+    width: 100%;
+    border: 2px solid black;
+    font-size: 14pt;
+    border-collapse: collapse;
+}
+
+thead {
+    font-size: 20pt;
+    font-weight: bold;
+}
+
+td {
+    width: 25%;
+    padding: 5pt;
+    border: 2px solid black;
+}
+
+.diagram1 {
+    background-image: url("diagram1.jpg");
+    background-size: 100%;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.diagram2 {
+    background-image: url("diagram2.jpg");
+    background-size: 100%;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
 .check-area {
     margin: 5pt 0;
     padding: 20pt;

@@ -14,17 +14,88 @@
             <span class="main-condition">S<sub>k</sub> &ge; k</span>,
             и для всей последовательности <span class="main-condition">S<sub>n</sub> = n</span>.
         </div>
-        <div class="task-formalization-table">
-
-        </div>
         <div class="check-area">
             <div class="check-area-controls">
-                <input type="text" id="source" class="check-area-controls-item" onkeyup="CheckInput()"/>
+                <input type="text" id="source" class="check-area-controls-item" onkeyup="CheckInput(event)"/>
                 <button value="Parse" id="parse-btn" class="check-area-controls-item" onclick="GetResult()">Parse</button>
             </div>
             <div class="results">
 
             </div>
+        </div>
+        <div class="task-formalization-table">
+            <table cols="4">
+                <thead>
+                <tr>
+                    <td>Правило</td>
+                    <td>Диаграмма</td>
+                    <td>Проверка</td>
+                    <td>Код</td>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td>&lt;Expression> ::= 1&lt;Expression> | 2&lt;After2>&lt;Expression> | null</td>
+                    <td class="diagram1"></td>
+                    <td>
+                        L(W<sub>1</sub>) = {1}<br/>
+                        L(W<sub>2</sub>) = {2}<br/>
+                        L(W<sub>3</sub>) = {}<br/>
+                        L(W<sub>1</sub>) &#8745; L(W<sub>2</sub>) &#8745; L(W<sub>3</sub>) = {}
+                    </td>
+                    <td class="code">
+                            <pre>
+let res = false;
+
+if (str.length === 0 || index === str.length) {
+    res = true;
+}
+else if (str[index] === '1') {
+    index++;
+    res = ParseExpression(str);
+}
+else if (str[index] === '2') {
+    index++;
+    res = ParseAfter2(str);
+    res = res && ParseExpression(str);
+}
+
+return res;</pre>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        &lt;After2> ::= 0&lt;Expression> | 1&lt;After2> | 2&lt;After2>&lt;After2>
+                    </td>
+                    <td class="diagram2"></td>
+                    <td>
+                        L(W<sub>1</sub>) = {0}<br/>
+                        L(W<sub>2</sub>) = {1}<br/>
+                        L(W<sub>3</sub>) = {2}<br/>
+                        L(W<sub>1</sub>) &#8745; L(W<sub>2</sub>) &#8745; L(W<sub>3</sub>) = {}
+                    </td>
+                    <td>
+<pre>let res = false;
+
+if (str[index] === '0') {
+    index++;
+    res = true;
+}
+else if (str[index] === '1') {
+    index++;
+    res = ParseAfter2(str);
+}
+else if (str[index] === '2') {
+    index++;
+    res = ParseAfter2(str);
+    res = res && ParseAfter2(str);
+}
+
+return res;</pre>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
         </div>
     </div>
     <footer>
