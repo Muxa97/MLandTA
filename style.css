@@ -29,10 +29,9 @@ h1 {
 
 .task:hover .main-condition {
     font-size: 23pt;
+    font-weight: bold;
     color: #ff4444;
 }
-
-
 
 .check-area {
     margin: 5pt 0;
@@ -57,6 +56,19 @@ h1 {
     width: 50%;
     border: 2px solid black;
     font-size: 20pt;
+    border-radius: 10px;
+    padding: 10px;
+    font-weight: bold;
+}
+
+input.valid {
+    border: 3px solid #11cc11;
+    color: #11cc11;
+}
+
+input.invalid {
+    border: 3px solid #991111;
+    color: #991111;
 }
 
 .check-area-controls button {

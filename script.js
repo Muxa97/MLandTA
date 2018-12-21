@@ -1,10 +1,10 @@
 
 let index = 0;
 
-function Parse() {
+function GetResult() {
     let str = document.getElementById('source').value;
 
-    if (ParseExpression(str)) {
+    if (Parse(str)) {
         let element = document.createElement("div");
         element.className = 'result good';
         element.innerHTML = `
@@ -21,6 +21,19 @@ function Parse() {
         document.getElementsByClassName('results')[0].appendChild(element);
     }
     index = 0;
+}
+
+function CheckInput() {
+    let input = document.getElementById('source');
+    input.classList.remove('valid', 'invalid');
+    let str = input.value;
+
+    document.getElementById('source').classList.add( Parse(str) ? 'valid' : 'invalid');
+    index = 0;
+}
+
+function Parse(str) {
+    return ParseExpression(str);
 }
 
 function ParseExpression(str) {
