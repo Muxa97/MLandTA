@@ -78,6 +78,13 @@ td {
     background-position: center;
 }
 
+.diagram3 {
+    background-image: url("diagram3.jpg");
+    background-size: 100%;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
 .check-area {
     margin: 5pt 0;
     padding: 20pt;
