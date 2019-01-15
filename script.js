@@ -44,7 +44,7 @@ function Parse(str) {
 function ParseExpression(str) {
     let res = false;
 
-    if (str.length === 0 || index === str.length) {
+    if (str.length !== 0 && index === str.length) {
         res = true;
     }
     else if (str[index] === '1') {
