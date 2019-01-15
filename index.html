@@ -46,10 +46,7 @@
                             <pre>
 let res = false;
 
-if (str.length !== 0 && index === str.length) {
-    res = true;
-}
-else if (str[index] === '1') {
+if (str[index] === '1') {
     index++;
     res = ParseContinuation(str);
 }
