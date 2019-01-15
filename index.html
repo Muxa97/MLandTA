@@ -35,13 +35,12 @@
                 </thead>
                 <tbody>
                 <tr>
-                    <td>&lt;Expression> ::= 1&lt;Expression> | 2&lt;After2>&lt;Expression> | null</td>
+                    <td>&lt;Expression> ::= 1&lt;Expression> | 2&lt;After2>&lt;Expression></td>
                     <td class="diagram1"></td>
                     <td>
                         L(W<sub>1</sub>) = {1}<br/>
                         L(W<sub>2</sub>) = {2}<br/>
-                        L(W<sub>3</sub>) = {}<br/>
-                        L(W<sub>1</sub>) &#8745; L(W<sub>2</sub>) &#8745; L(W<sub>3</sub>) = {}
+                        L(W<sub>1</sub>) &#8745; L(W<sub>2</sub>) = {}
                     </td>
                     <td class="code">
                             <pre>
@@ -89,6 +88,34 @@ else if (str[index] === '2') {
     index++;
     res = ParseAfter2(str);
     res = res && ParseAfter2(str);
+}
+
+return res;</pre>
+                    </td>
+                </tr>
+                <tr>
+                    <td>&lt;Continuation> ::= 1&lt;Continuation> | 2&lt;After2>&lt;Continuation></td>
+                    <td class="diagram1"></td>
+                    <td>
+                        L(W<sub>1</sub>) = {1}<br/>
+                        L(W<sub>2</sub>) = {2}<br/>
+                        L(W<sub>1</sub>) &#8745; L(W<sub>2</sub>) = {}
+                    </td>
+                    <td class="code">
+                            <pre>
+let res = false;
+
+if (str.length === 0 || index === str.length) {
+    res = true;
+}
+else if (str[index] === '1') {
+    index++;
+    res = ParseExpression(str);
+}
+else if (str[index] === '2') {
+    index++;
+    res = ParseAfter2(str);
+    res = res && ParseExpression(str);
 }
 
 return res;</pre>
