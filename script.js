@@ -49,12 +49,12 @@ function ParseExpression(str) {
     }
     else if (str[index] === '1') {
         index++;
-        res = ParseExpression(str);
+        res = ParseContinuation(str);
     }
     else if (str[index] === '2') {
         index++;
         res = ParseAfter2(str);
-        res = res && ParseExpression(str);
+        res = res && ParseContinuation(str);
     }
 
     return res;
@@ -75,6 +75,25 @@ function ParseAfter2(str) {
         index++;
         res = ParseAfter2(str);
         res = res && ParseAfter2(str);
+    }
+
+    return res;
+}
+
+function ParseContinuation(str) {
+    let res = false;
+
+    if (index === str.length) {
+        res = true;
+    }
+    else if (str[index] === '1') {
+        index++;
+        res = ParseExpression(str);
+    }
+    else if (str[index] === '2') {
+        index++;
+        res = ParseAfter2(str);
+        res = res && ParseContinuation(str);
     }
 
     return res;
