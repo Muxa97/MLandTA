@@ -35,7 +35,7 @@
                 </thead>
                 <tbody>
                 <tr>
-                    <td>&lt;Expression> ::= 1&lt;Expression> | 2&lt;After2>&lt;Expression></td>
+                    <td>&lt;Expression> ::= 1&lt;Continuation> | 2&lt;After2>&lt;Continuation></td>
                     <td class="diagram1"></td>
                     <td>
                         L(W<sub>1</sub>) = {1}<br/>
@@ -64,7 +64,7 @@ return res;</pre>
                 </tr>
                 <tr>
                     <td>
-                        &lt;After2> ::= 0&lt;Expression> | 1&lt;After2> | 2&lt;After2>&lt;After2>
+                        &lt;After2> ::= 0&lt;Continuation> | 1&lt;After2> | 2&lt;After2>&lt;After2>
                     </td>
                     <td class="diagram2"></td>
                     <td>
