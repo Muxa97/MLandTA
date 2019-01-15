@@ -91,12 +91,13 @@ return res;</pre>
                     </td>
                 </tr>
                 <tr>
-                    <td>&lt;Continuation> ::= 1&lt;Continuation> | 2&lt;After2>&lt;Continuation></td>
+                    <td>&lt;Continuation> ::= 1&lt;Continuation> | 2&lt;After2>&lt;Continuation> | null</td>
                     <td class="diagram3"></td>
                     <td>
                         L(W<sub>1</sub>) = {1}<br/>
                         L(W<sub>2</sub>) = {2}<br/>
-                        L(W<sub>1</sub>) &#8745; L(W<sub>2</sub>) = {}
+                        L(W<sub>3</sub>) = {}<br/>
+                        L(W<sub>1</sub>) &#8745; L(W<sub>2</sub>) &#8745; L(W<sub>3</sub>) = {}
                     </td>
                     <td class="code">
                             <pre>
